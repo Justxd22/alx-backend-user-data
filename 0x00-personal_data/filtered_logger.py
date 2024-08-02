@@ -52,7 +52,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     """Connect to db securly."""
     db_host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
     db_user = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
-    db_name = os.getenv("PERSONAL_DATA_DB_NAME", "")
+    db_name = os.getenv("PERSONAL_DATA_DB_NAME")
     db_pwd = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
     c = mysql.connector.connect(
         host=db_host,
