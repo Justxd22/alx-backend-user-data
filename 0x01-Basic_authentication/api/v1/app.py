@@ -16,8 +16,9 @@ auth = 0
 authT = os.getenv("AUTH_TYPE", 'auth')
 if authT == "auth":
     auth = Auth()
-else: 
+else:
     auth = BasicAuth()
+
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
@@ -39,7 +40,7 @@ def not_found(error) -> str:
 
 @app.before_request
 def authenticate_user():
-    """Authenticates a user before processing a request."""
+    """Authenticate a user before processing a request."""
     if auth:
         null = [
             '/api/v1/status/',
