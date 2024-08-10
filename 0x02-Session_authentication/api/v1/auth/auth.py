@@ -7,7 +7,7 @@ retrieving the authorization header, and identifying the current user.
 
 from flask import request
 from typing import List, TypeVar
-
+import os
 
 class Auth:
     """
@@ -95,3 +95,9 @@ class Auth:
             The current user (None in this placeholder implementation).
         """
         return None
+
+    def session_cookie(self, request=None):
+        """Get cookie from request."""
+        if not request:
+            return None
+        return request.cookies.get(os.getenv('SESSION_NAME', '_my_session_id'))
