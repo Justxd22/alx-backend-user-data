@@ -62,7 +62,7 @@ def authenticate_user():
         if auth.require_auth(request.path, null):
             auth_header = auth.authorization_header(request)
             if auth_header and auth.session_cookie(request):
-                abort(401)
+                abort(403)
             user = request.current_user
             if auth_header is None:
                 abort(401)
